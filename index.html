@@ -3,326 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le Plunk — Codex</title>
-  <meta name="description" content="Codex du bar Le Plunk sur Rishi. Règlement, menus et informations.">
+  <title>Le Plunk — Bar sur Rishi</title>
+  <meta name="description" content="Le Plunk, bar neutre sur Rishi. Codex, menu et personnel du bar.">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="images/ICONE.png">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Le Plunk — Codex">
-  <meta property="og:description" content="Codex du bar Le Plunk sur Rishi.">
-  <meta property="og:url" content="https://insanity-chan.github.io/Civil/codex.html">
-  <meta property="og:image" content="https://insanity-chan.github.io/Civil/preview.png">
+  <meta property="og:title" content="Le Plunk — Bar sur Rishi">
+  <meta property="og:description" content="Le Plunk, bar neutre sur Rishi.">
+  <meta property="og:url" content="https://insanity-chan.github.io/CIVILIAN/">
+  <meta property="og:image" content="https://insanity-chan.github.io/CIVILIAN/preview.png">
   <meta property="og:site_name" content="Le Plunk">
-  <meta name="theme-color" content="#ff8800">
+  <meta name="theme-color" content="#ff8c00">
 
   <style>
-    :root {
-      --civil-orange: #ff8800;
-      --civil-glow: rgba(255, 136, 0, 0.6);
-      --civil-dim: rgba(255, 136, 0, 0.15);
-      --civil-deep: #1a0f00;
-      --bg-dark: #0a0705;
-      --text-white: #f0e0d0;
-      --civil-accent: #ffaa44;
+    /* IMAGE DE FOND : mets ton fichier dans images/fond.jpg */
+    .site-fond {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('images/fond.jpg') center / cover no-repeat;
+      opacity: 0.25;
+      z-index: -1;
     }
 
-    body {
-      background: var(--bg-dark);
+    .accueil-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+
+    .accueil-intro em {
+      color: var(--holo-cyan);
+      font-style: italic;
+    }
+
+    .accueil-banniere {
+      display: block;
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border: 1px solid var(--holo-dim);
+      margin-bottom: 30px;
+    }
+
+    .accueil-cartes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    a.accueil-carte, a.accueil-carte:visited {
+      display: block;
+      padding: 25px 20px;
+      border: 1px solid var(--holo-dim);
+      background: rgba(26, 14, 0, 0.3);
       color: var(--text-white);
+      transition: all 0.3s;
     }
 
-    body::before {
-      background: repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255,136,0,0.03) 3px, rgba(255,136,0,0.03) 4px);
+    a.accueil-carte:hover {
+      border-color: var(--holo-cyan);
+      box-shadow: 0 0 15px var(--holo-glow);
+      background: var(--holo-dim);
     }
 
-    body::after {
-      background: radial-gradient(ellipse at center, transparent 60%, rgba(255,136,0,0.04) 100%);
-    }
-
-    .holo-header h1 {
-      color: var(--civil-orange);
-      text-shadow: 0 0 10px var(--civil-glow), 0 0 30px var(--civil-glow), 0 0 60px rgba(255,136,0,0.3);
-    }
-
-    @keyframes textGlow {
-      from { text-shadow: 0 0 10px var(--civil-glow), 0 0 30px var(--civil-glow), 0 0 60px rgba(255,136,0,0.3); }
-      to   { text-shadow: 0 0 15px var(--civil-glow), 0 0 45px var(--civil-glow), 0 0 80px rgba(255,136,0,0.5); }
-    }
-
-    .holo-header .subtitle { color: var(--civil-orange); }
-
-    .holo-frame {
-      border: 1px solid var(--civil-dim);
-      background: rgba(26, 15, 0, 0.3);
-    }
-
-    .holo-frame::before,
-    .holo-frame::after {
-      border: 2px solid var(--civil-orange);
-      box-shadow: 0 0 10px var(--civil-glow);
-    }
-
-    .holo-nav button {
-      border: 1px solid var(--civil-dim);
-      color: var(--civil-orange);
-    }
-
-    .holo-nav button:hover,
-    .holo-nav button.active {
-      border-color: var(--civil-orange);
-      background: var(--civil-dim);
-      box-shadow: 0 0 15px var(--civil-glow), inset 0 0 15px rgba(255,136,0,0.1);
-      text-shadow: 0 0 8px var(--civil-glow);
-    }
-
-    .holo-panel h2 {
-      color: var(--civil-orange);
-      text-shadow: 0 0 10px var(--civil-glow);
-      border-bottom: 1px solid var(--civil-dim);
-    }
-
-    .holo-section h2 {
-      color: var(--civil-orange);
-      text-shadow: 0 0 10px var(--civil-glow);
-    }
-
-    .holo-section h3 {
-      color: var(--civil-orange);
-    }
-
-    .holo-section h4 {
-      color: var(--civil-accent);
-    }
-
-    .holo-list li {
-      border-bottom: 1px solid rgba(255,136,0,0.05);
-      color: var(--text-white);
-    }
-
-    .holo-list li::before {
-      color: var(--civil-orange);
-      text-shadow: 0 0 5px var(--civil-glow);
-    }
-
-    .holo-list li strong {
-      color: var(--civil-orange);
-      text-shadow: 0 0 5px var(--civil-glow);
-    }
-
-    .holo-link {
-      color: var(--civil-orange);
-      border: 1px solid var(--civil-dim);
-    }
-
-    .holo-link:hover {
-      border-color: var(--civil-orange);
-      background: var(--civil-dim);
-      box-shadow: 0 0 10px var(--civil-glow);
-    }
-
-    .holo-status { color: var(--civil-orange); }
-
-    #boot-screen { background: var(--bg-dark); }
-    #boot-screen .boot-text { color: var(--civil-orange); }
-    #boot-screen .boot-bar { background: var(--civil-dim); }
-    #boot-screen .boot-bar-fill {
-      background: var(--civil-orange);
-      box-shadow: 0 0 10px var(--civil-glow);
-    }
-
-    .holo-sommaire { display: flex; flex-direction: column; gap: 8px; }
-
-    .civil-codex-article {
-      margin: 25px 0;
-      padding: 20px;
-      border: 1px solid var(--civil-dim);
-      background: rgba(26, 15, 0, 0.2);
-    }
-
-    .civil-codex-title {
+    .accueil-carte .carte-titre {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.1rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--civil-orange);
-      text-shadow: 0 0 10px var(--civil-glow);
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--civil-dim);
-    }
-
-    .civil-codex-text {
-      font-size: 0.9rem;
-      line-height: 1.8;
-      opacity: 0.85;
-      color: var(--text-white);
-    }
-
-    .civil-codex-text p {
+      color: var(--holo-cyan);
+      text-shadow: 0 0 8px var(--holo-glow);
       margin-bottom: 10px;
     }
 
-    .civil-codex-text em {
-      color: var(--civil-accent);
-      font-style: italic;
+    .accueil-carte .carte-texte {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+
+    .accueil-infos {
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
+  <div class="site-fond"></div>
+
   <div id="boot-screen">
     <div class="boot-text">&gt; INITIALISATION DU TERMINAL...</div>
     <div class="boot-text">&gt; CONNEXION AU RÉSEAU DE RISHI...</div>
-    <div class="boot-text">&gt; CHARGEMENT : CODEX DU PLUNK...</div>
+    <div class="boot-text">&gt; BIENVENUE AU PLUNK...</div>
     <div class="boot-bar"><div class="boot-bar-fill"></div></div>
   </div>
 
   <div class="holo-header">
     <h1>Le Plunk</h1>
-    <div class="subtitle">Codex — Bar sur Rishi</div>
+    <div class="subtitle">Bar neutre — Rishi</div>
   </div>
 
   <div class="holo-frame">
 
     <div class="holo-nav">
-      <a href="index.html"><button>Accueil</button></a>
-      <a href="codex.html"><button class="active">Codex</button></a>
+      <a href="index.html"><button class="active">Accueil</button></a>
+      <a href="codex.html"><button>Codex</button></a>
       <a href="menu.html"><button>Menu</button></a>
       <a href="effectif.html"><button>Personnel</button></a>
     </div>
 
-    <!-- SOMMAIRE -->
+    <!-- BANNIÈRE : mets ton image dans images/banniere.jpg (supprime cette ligne si tu n'en veux pas) -->
+    <img class="accueil-banniere" src="images/banniere.jpg" alt="Le Plunk, bar sur Rishi" onerror="this.style.display='none'">
+
     <div class="holo-panel active">
-      <h2>Sommaire</h2>
-      <div class="holo-sommaire">
-        <a href="#reglement" class="holo-link">I — Règlement du Bar</a>
-        <a href="#service" class="holo-link">II — Règles de Service</a>
-        <a href="#securite" class="holo-link">III — Sécurité & Conduite</a>
-        <a href="#tenue" class="holo-link">IV — Tenue & Apparence</a>
-        <a href="#rishi" class="holo-link">V — Informations sur Rishi</a>
-      </div>
+      <h2>Bienvenue au Plunk</h2>
+      <p class="accueil-intro">
+        Sur Rishi, entre les plages et les stations de pirates, une porte reste ouverte à tous.
+        Contrebandiers, soldats, chasseurs de primes ou simples voyageurs : ici, tout le monde boit en paix.
+        <em>Ce qui se dit au bar, reste au bar.</em>
+      </p>
     </div>
 
-    <!-- I - RÈGLEMENT -->
-    <div class="holo-section" id="reglement">
-      <h2>I — Règlement du Bar</h2>
+    <div class="accueil-cartes">
+      <a href="codex.html" class="accueil-carte">
+        <div class="carte-titre">Codex</div>
+        <div class="carte-texte">Le règlement du bar, les règles de service, la sécurité et la tenue du personnel.</div>
+      </a>
 
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 1 — Accueil des Clients</div>
-        <div class="civil-codex-text">
-          <p>Tout client entrant au Plunk doit être accueilli avec courtoisie, qu'il soit civil, militaire, contrebandier ou Jedi. <em>Le Plunk est un territoire neutre.</em></p>
-          <p>Aucune discrimination basée sur l'espèce, l'affiliation politique ou le passé criminel n'est tolérée tant que le client respecte le règlement.</p>
-        </div>
-      </div>
+      <a href="menu.html" class="accueil-carte">
+        <div class="carte-titre">Menu</div>
+        <div class="carte-texte">Les boissons, cocktails et plats servis au Plunk, avec leurs prix.</div>
+      </a>
 
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 2 — Neutralité du Plunk</div>
-        <div class="civil-codex-text">
-          <p>Le Plunk est une zone neutre. Aucun combat, arrestation ou acte d'hostilité ne doit avoir lieu dans l'enceinte du bar.</p>
-          <p>Les armes doivent rester au ceinture ou dans le holster. <em>Toute arme dégainée sans raison valable entraîne l'expulsion immédiate.</em></p>
-          <p>Les conflits personnels sont à régler à l'extérieur. Le barman peut refuser de servir toute personne perturbant la paix du bar.</p>
-        </div>
-      </div>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 3 — Paiement & Crédits</div>
-        <div class="civil-codex-text">
-          <p>Toute consommation doit être payée. Les crédits impériaux, républicains et les crédits de la Bordure Extérieure sont acceptés.</p>
-          <p>Le troc est autorisé uniquement avec l'accord du gérant. <em>Aucun crédit, pas de boisson.</em></p>
-          <p>Une ardoise est possible pour les habitués de confiance, mais le solde doit être réglé à la fin de la semaine.</p>
-        </div>
-      </div>
+      <a href="effectif.html" class="accueil-carte">
+        <div class="carte-titre">Personnel</div>
+        <div class="carte-texte">L'équipe du Plunk : gérant, barmen, videur et habitués.</div>
+      </a>
     </div>
 
-    <!-- II - RÈGLES DE SERVICE -->
-    <div class="holo-section" id="service">
-      <h2>II — Règles de Service</h2>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 4 — Préparation des Boissons</div>
-        <div class="civil-codex-text">
-          <p>Chaque boisson doit être préparée avec soin, selon les recettes du menu officiel du Plunk.</p>
-          <p>Les quantités d'alcool doivent être respectées. <em>Servir un client déjà ivre est interdit — proposez de l'eau ou un café de Tatooine à la place.</em></p>
-          <p>Les verres doivent être propres avant chaque service. Un verre sale est une tache sur la réputation du Plunk.</p>
+    <div class="holo-section accueil-infos">
+      <h2>Informations</h2>
+      <div class="holo-grid">
+        <div class="holo-card">
+          <div class="label">Lieu</div>
+          <div class="value">Rishi</div>
         </div>
-      </div>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 5 — Comportement en Service</div>
-        <div class="civil-codex-text">
-          <p>Le barman se doit d'être souriant, poli et à l'écoute, même face à un client difficile.</p>
-          <p>Les discussions avec les clients font partie du métier, mais <em>les rumeurs et informations sensibles ne doivent pas être divulguées.</em></p>
-          <p>Un barman du Plunk est aussi un confident : ce qui se dit au bar, reste au bar.</p>
+        <div class="holo-card">
+          <div class="label">Statut</div>
+          <div class="value">Neutre</div>
         </div>
-      </div>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 6 — Gestion des Stocks</div>
-        <div class="civil-codex-text">
-          <p>L'inventaire doit être vérifié en début et fin de service. Toute rupture de stock doit être signalée au gérant.</p>
-          <p>Le gaspillage est inacceptable. Les bouteilles entamées doivent être correctement fermées et stockées.</p>
-          <p><em>Le vol de marchandise est un motif de renvoi immédiat.</em></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- III - SÉCURITÉ -->
-    <div class="holo-section" id="securite">
-      <h2>III — Sécurité & Conduite</h2>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 7 — Gestion des Indésirables</div>
-        <div class="civil-codex-text">
-          <p>En cas de client agressif ou ivre, le barman doit d'abord tenter de calmer la situation par la diplomatie.</p>
-          <p>Si la situation dégénère, le videur doit être appelé. <em>Le barman ne doit jamais intervenir physiquement.</em></p>
-          <p>En cas de danger grave (tir, explosion, attaque), le bouton d'alerte derrière le comptoir doit être activé.</p>
-        </div>
-      </div>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 8 — Objets Trouvés & Perdus</div>
-        <div class="civil-codex-text">
-          <p>Tout objet oublié par un client doit être déposé derrière le comptoir dans la boîte des objets trouvés.</p>
-          <p><em>Le barman ne doit jamais fouiller les affaires d'un client, même abandonnées.</em></p>
-          <p>Les objets non réclamés après 7 jours sont remis au gérant.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- IV - TENUE -->
-    <div class="holo-section" id="tenue">
-      <h2>IV — Tenue & Apparence</h2>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 9 — Tenue de Service</div>
-        <div class="civil-codex-text">
-          <p>Le tablier du Plunk est obligatoire pendant le service. Il doit être propre et en bon état.</p>
-          <p>Les mains doivent être lavées régulièrement, surtout après avoir manipulé de la vaisselle ou des déchets.</p>
-          <p><em>Une tenue propre est le premier signe de respect envers le client.</em></p>
-        </div>
-      </div>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Article 10 — Apparence Générale</div>
-        <div class="civil-codex-text">
-          <p>Les cheveux longs doivent être attachés pendant le service.</p>
-          <p>Pas de bijoux sur les mains ou les poignets pendant la manipulation des verres et aliments.</p>
-          <p>Le barman est le visage du Plunk — son apparence reflète la qualité du bar.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- V - RISHI -->
-    <div class="holo-section" id="rishi">
-      <h2>V — Informations sur Rishi</h2>
-
-      <div class="civil-codex-article">
-        <div class="civil-codex-title">Le Plunk sur Rishi</div>
-        <div class="civil-codex-text">
-          <p>Rishi est une planète de la Bordure Extérieure, connue pour ses plages tropicales, ses stations de pirates et son ambiance détendue.</p>
-          <p>Le Plunk s'est installé sur cette planète pour offrir un lieu de rencontre neutre où contrebandiers, chasseurs de primes, soldats et voyageurs peuvent partager un verre en paix.</p>
-          <p><em>Sur Rishi, les règles de la galaxie comptent moins que celles du bar. Respectez le Plunk, et le Plunk vous respectera.</em></p>
+        <div class="holo-card">
+          <div class="label">Crédits acceptés</div>
+          <div class="value">Tous</div>
         </div>
       </div>
     </div>
