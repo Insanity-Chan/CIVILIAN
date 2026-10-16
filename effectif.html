@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Plunk — Personnel et Direction du Bar</title>
+  <meta name="description" content="Le personnel du bar Le Plunk sur Rishi : les trois PDG et l'équipe.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="images/ICONE.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Le Plunk — Personnel">
+  <meta property="og:description" content="La direction et l'équipe du Plunk, bar sur Rishi.">
+  <meta property="og:url" content="https://insanity-chan.github.io/CIVILIAN/effectif.html">
+  <meta property="og:image" content="https://insanity-chan.github.io/CIVILIAN/preview.png">
+  <meta property="og:site_name" content="Le Plunk">
+  <meta name="theme-color" content="#ff8c00">
+
+  <style>
+    .perso-grille {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .perso-carte {
+      border: 1px solid var(--holo-dim);
+      background: rgba(26, 14, 0, 0.3);
+      padding: 20px;
+      transition: all 0.3s;
+    }
+
+    .perso-carte:hover {
+      border-color: var(--holo-cyan);
+      box-shadow: 0 0 15px var(--holo-glow);
+    }
+
+    /* PHOTO : images/personnel/nom.png (carré conseillé, 400x400) */
+    .perso-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border: 1px solid var(--holo-dim);
+      margin-bottom: 15px;
+    }
+
+    .perso-nom {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--holo-cyan);
+      text-shadow: 0 0 10px var(--holo-glow);
+    }
+
+    .perso-grade {
+      margin: 6px 0 15px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      opacity: 0.7;
+    }
+
+    .perso-roles { list-style: none; }
+
+    .perso-roles li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(255,140,0,0.05);
+      font-size: 0.9rem;
+    }
+
+    .perso-roles li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--holo-cyan);
+    }
+
+    .perso-regle {
+      margin-top: 30px;
+      padding: 15px 20px;
+      border: 1px solid var(--holo-cyan);
+      background: var(--holo-dim);
+      line-height: 1.7;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="boot-screen">
+    <div class="boot-text">&gt; INITIALISATION DU TERMINAL...</div>
+    <div class="boot-text">&gt; CONNEXION AU RÉSEAU DE RISHI...</div>
+    <div class="boot-text">&gt; CHARGEMENT : PERSONNEL DU PLUNK...</div>
+    <div class="boot-bar"><div class="boot-bar-fill"></div></div>
+  </div>
+
+  <div class="holo-header">
+    <h1>Le Plunk</h1>
+    <div class="subtitle">Personnel — Bar sur Rishi</div>
+  </div>
+
+  <div class="holo-frame">
+
+    <div class="holo-nav">
+      <a href="index.html"><button>Accueil</button></a>
+      <a href="codex.html"><button>Codex</button></a>
+      <a href="menu.html"><button>Menu</button></a>
+      <a href="effectif.html"><button class="active">Personnel</button></a>
+    </div>
+
+    <!-- SOMMAIRE -->
+    <div class="holo-panel active">
+      <h2>Sommaire</h2>
+      <div class="holo-sommaire">
+        <a href="#direction" class="holo-link">I — Direction : les trois PDG</a>
+        <a href="#equipe" class="holo-link">II — Équipe</a>
+      </div>
+    </div>
+
+    <!-- I - DIRECTION -->
+    <div class="holo-section" id="direction">
+      <h2>I — Direction</h2>
+      <p class="holo-intro">Le Plunk est dirigé par trois PDG.</p>
+
+      <div class="perso-grille">
+
+        <div class="perso-carte">
+          <img class="perso-photo" src="images/personnel/oerlikone.png" alt="Oerlikone" onerror="this.style.display='none'">
+          <div class="perso-nom">Oerlikone</div>
+          <div class="perso-grade">PDG</div>
+          <ul class="perso-roles">
+            <li>Cuisinier</li>
+            <li>Chef de la Sécurité du bar</li>
+            <li>Responsable de l'intérieur</li>
+          </ul>
+        </div>
+
+        <div class="perso-carte">
+          <img class="perso-photo" src="images/personnel/rick.png" alt="Rick" onerror="this.style.display='none'">
+          <div class="perso-nom">Rick</div>
+          <div class="perso-grade">PDG</div>
+          <ul class="perso-roles">
+            <li>Barman</li>
+            <li>« Politique » du bar</li>
+          </ul>
+        </div>
+
+        <div class="perso-carte">
+          <img class="perso-photo" src="images/personnel/sam.png" alt="Sam" onerror="this.style.display='none'">
+          <div class="perso-nom">Sam</div>
+          <div class="perso-grade">PDG</div>
+          <ul class="perso-roles">
+            <li>Chef de l'Événementiel</li>
+            <li>Affaires Externes du bar</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="perso-regle">
+        Aucun aspect du bar n'est réservé à un seul PDG. Chaque PDG a son mot à dire sur tous les sujets,
+        même ceux dont il n'est pas le responsable.
+      </p>
+    </div>
+
+    <!-- II - ÉQUIPE -->
+    <div class="holo-section" id="equipe">
+      <h2>II — Équipe</h2>
+
+      <div class="perso-grille">
+        <div class="perso-carte">
+          <img class="perso-photo" src="images/personnel/banjos.png" alt="Banjos" onerror="this.style.display='none'">
+          <div class="perso-nom">Banjos</div>
+          <div class="perso-grade">Employé</div>
+          <ul class="perso-roles">
+            <li>Employé polyvalent</li>
+            <li>Multitechnique</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="holo-status">
+      <span><span class="blink">●</span> CONNEXION STABLE</span>
+      <span id="horloge">--:--:--</span>
+      <span>RISHI — LE PLUNK</span>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('boot-screen').style.display = 'none';
+    }, 700);
+
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('horloge').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
