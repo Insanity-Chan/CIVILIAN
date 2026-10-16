@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Plunk — Menu des Boissons et Plats</title>
+  <meta name="description" content="Menu du bar Le Plunk sur Rishi : boissons, bières, vins, liqueurs et plats avec leurs prix en crédits.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="images/ICONE.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Le Plunk — Menu">
+  <meta property="og:description" content="Boissons et plats du Plunk, bar sur Rishi.">
+  <meta property="og:url" content="https://insanity-chan.github.io/CIVILIAN/menu.html">
+  <meta property="og:image" content="https://insanity-chan.github.io/CIVILIAN/preview.png">
+  <meta property="og:site_name" content="Le Plunk">
+  <meta name="theme-color" content="#ff8c00">
+
+  <style>
+    .menu-categorie {
+      margin: 30px 0 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--holo-cyan);
+      text-shadow: 0 0 8px var(--holo-glow);
+    }
+
+    .menu-scroll { overflow-x: auto; }
+
+    .holo-table td.prix {
+      text-align: right;
+      white-space: nowrap;
+      color: var(--holo-cyan);
+      text-shadow: 0 0 5px var(--holo-glow);
+    }
+
+    .holo-table th.prix { text-align: right; }
+
+    .menu-detail {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.8rem;
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
+    .menu-reserve {
+      margin-top: 30px;
+      padding: 15px 20px;
+      border: 1px solid var(--holo-cyan);
+      background: var(--holo-dim);
+    }
+
+    .menu-reserve .menu-categorie { margin-top: 0; }
+
+    .menu-avis {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-style: italic;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="boot-screen">
+    <div class="boot-text">&gt; INITIALISATION DU TERMINAL...</div>
+    <div class="boot-text">&gt; CONNEXION AU RÉSEAU DE RISHI...</div>
+    <div class="boot-text">&gt; CHARGEMENT : MENU DU PLUNK...</div>
+    <div class="boot-bar"><div class="boot-bar-fill"></div></div>
+  </div>
+
+  <div class="holo-header">
+    <h1>Le Plunk</h1>
+    <div class="subtitle">Menu — Bar sur Rishi</div>
+  </div>
+
+  <div class="holo-frame">
+
+    <div class="holo-nav">
+      <a href="index.html"><button>Accueil</button></a>
+      <a href="codex.html"><button>Codex</button></a>
+      <a href="menu.html"><button class="active">Menu</button></a>
+      <a href="effectif.html"><button>Personnel</button></a>
+    </div>
+
+    <!-- SOMMAIRE -->
+    <div class="holo-panel active">
+      <h2>Sommaire</h2>
+      <div class="holo-sommaire">
+        <a href="#boissons" class="holo-link">I — Boissons</a>
+        <a href="#nourriture" class="holo-link">II — Nourriture</a>
+      </div>
+      <p class="holo-note">Tous les prix sont en crédits (c).</p>
+    </div>
+
+    <!-- I - BOISSONS -->
+    <div class="holo-section" id="boissons">
+      <h2>I — Boissons</h2>
+
+      <h3 class="menu-categorie">Sans alcool</h3>
+      <div class="menu-scroll">
+        <table class="holo-table">
+          <tr><th>Boisson</th><th class="prix">Prix</th></tr>
+          <tr><td>Eau (plate ou pétillante)</td><td class="prix">0c</td></tr>
+          <tr><td>Café</td><td class="prix">80c</td></tr>
+          <tr><td>Jus de fruit</td><td class="prix">80c</td></tr>
+          <tr><td>Sirop de fruit avec eau pétillante</td><td class="prix">100c</td></tr>
+        </table>
+      </div>
+
+      <h3 class="menu-categorie">Bières</h3>
+      <div class="menu-scroll">
+        <table class="holo-table">
+          <tr><th>Boisson</th><th class="prix">Prix</th></tr>
+          <tr><td>Bière Foz <span class="menu-detail">1,2°</span></td><td class="prix">100c</td></tr>
+          <tr><td>Bière d'Ébla <span class="menu-detail">6°</span></td><td class="prix">100c</td></tr>
+        </table>
+      </div>
+
+      <h3 class="menu-categorie">Vins</h3>
+      <div class="menu-scroll">
+        <table class="holo-table">
+          <tr><th>Boisson</th><th class="prix">Prix</th></tr>
+          <tr>
+            <td>Vin de Rénan <span class="menu-detail">Rouge uniquement — 11°</span></td>
+            <td class="prix">200c</td>
+          </tr>
+          <tr>
+            <td>Vin de la Maison Thul
+              <span class="menu-detail">Jeune (plus fruité) ou Âgé (plus mature)</span>
+              <span class="menu-detail">Rouge, Rosé, Vert ou Blanc</span>
+            </td>
+            <td class="prix">250c</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3 class="menu-categorie">Liqueurs</h3>
+      <div class="menu-scroll">
+        <table class="holo-table">
+          <tr><th>Boisson</th><th class="prix">Prix</th></tr>
+          <tr><td>Jus de Jet <span class="menu-detail">45° à 50°</span></td><td class="prix">300c</td></tr>
+          <tr><td>Liqueur de Rishi <span class="menu-detail">55°</span></td><td class="prix">400c</td></tr>
+          <tr><td>Brandy <span class="menu-detail">60°</span></td><td class="prix">350c</td></tr>
+        </table>
+      </div>
+
+      <div class="menu-reserve">
+        <h3 class="menu-categorie">Réserve du barman Rick</h3>
+        <p class="holo-note">Servi uniquement par Rick.</p>
+        <div class="menu-scroll">
+          <table class="holo-table">
+            <tr><th>Boisson</th><th class="prix">Prix</th></tr>
+            <tr><td>Vin Château Révan <span class="menu-detail">Rouge, 200 ans d'âge — 18°</span></td><td class="prix">1 750c</td></tr>
+            <tr><td>Alcool pur <span class="menu-detail">100°</span></td><td class="prix">2 000c</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- II - NOURRITURE -->
+    <div class="holo-section" id="nourriture">
+      <h2>II — Nourriture</h2>
+
+      <h3 class="menu-categorie">À grignoter</h3>
+      <div class="menu-scroll">
+        <table class="holo-table">
+          <tr><th>Plat</th><th class="prix">Prix</th></tr>
+          <tr><td>Amuse-bouche</td><td class="prix">50c</td></tr>
+          <tr>
+            <td>Viande séchée
+              <span class="menu-detail">Supplément selon la viande : Tauntaun +0c, Skel +25c</span>
+            </td>
+            <td class="prix">100c</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3 class="menu-categorie">Plats</h3>
+      <div class="menu-scroll">
+        <table class="holo-table">
+          <tr><th>Plat</th><th class="prix">Prix</th></tr>
+          <tr>
+            <td>Brochette
+              <span class="menu-detail">Supplément selon la viande : Tauntaun +0c, Skel +25c, Wampa +50c, Tukata +300c</span>
+            </td>
+            <td class="prix">150c</td>
+          </tr>
+          <tr>
+            <td>Kebab de Skel ou de Wampa</td>
+            <td class="prix">250c</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="menu-reserve">
+        <h3 class="menu-categorie">Spécialité d'Oerlikone</h3>
+        <p class="holo-note">Préparée uniquement par Oerlikone.</p>
+        <div class="menu-scroll">
+          <table class="holo-table">
+            <tr><th>Plat</th><th class="prix">Prix</th></tr>
+            <tr>
+              <td>Viande au vin à la poêle
+                <span class="menu-detail">Supplément selon la viande : Tauntaun +100c, Skel +125c, Wampa +150c, Tukata +300c, Ner +1 000c</span>
+              </td>
+              <td class="prix">550c</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <h3 class="menu-categorie">Dessert</h3>
+      <div class="menu-scroll">
+        <table class="holo-table">
+          <tr><th>Dessert</th><th class="prix">Prix</th></tr>
+          <tr><td>Gâteau de Bantha au chocolat</td><td class="prix">1 000c</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <p class="menu-avis">L'alcool se consomme avec modération. Le Plunk ne sert pas les clients déjà ivres.</p>
+
+    <div class="holo-status">
+      <span><span class="blink">●</span> CONNEXION STABLE</span>
+      <span id="horloge">--:--:--</span>
+      <span>RISHI — LE PLUNK</span>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('boot-screen').style.display = 'none';
+    }, 700);
+
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('horloge').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
